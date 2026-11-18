@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World Today — 18 November 2026</title>
+<style>
+  @page { size: 1024px 1024px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #14161c;
+    --paper: #f4f1e8;
+    --muted: #5a5d66;
+    --rule: #c9c3b4;
+    --red: #b3261e;
+    --navy: #1c2b4a;
+    --gold: #b98a2e;
+  }
+  html, body { width: 1024px; height: 1024px; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 24px 26px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sans { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+  /* ---------- masthead ---------- */
+  header { border-bottom: 3px double var(--ink); padding-bottom: 10px; }
+  .topline {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font: 700 10px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--red);
+    padding-bottom: 6px; border-bottom: 1px solid var(--ink); margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 68px; line-height: .92; letter-spacing: -.02em;
+    font-weight: 700; text-transform: uppercase;
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  h1 .day { font-size: 34px; letter-spacing: .02em; color: var(--red); }
+  .subhead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 8px;
+    font: 600 12px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ---------- shared ---------- */
+  main { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 14px; }
+  .row { display: grid; gap: 16px; }
+  .kicker {
+    font: 700 10.5px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--red);
+  }
+  .story h3 { font-size: 25px; line-height: 1.04; letter-spacing: -.01em; margin: 6px 0 6px; }
+  .story p { font-size: 13.4px; line-height: 1.34; color: #2c2f37; }
+  .rule { border-top: 1px solid var(--rule); padding-top: 9px; }
+  .date-chip {
+    font: 700 9.5px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .12em; color: var(--muted); text-transform: uppercase;
+  }
+
+  /* ---------- lead ---------- */
+  .lead-grid { grid-template-columns: 1fr 336px; }
+  .lead { display: flex; flex-direction: column; }
+  .lead h2 {
+    font-size: 47px; line-height: .98; letter-spacing: -.022em; font-weight: 700;
+    margin: 8px 0 10px;
+  }
+  .lead .deck { font-size: 16px; line-height: 1.38; color: #24272e; max-width: 620px; }
+  .art {
+    margin-top: auto; border: 1px solid var(--ink); background: var(--navy);
+    display: block; width: 100%;
+  }
+  .caption {
+    font: 500 11px/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--muted); padding-top: 6px;
+  }
+
+  /* ---------- side ---------- */
+  .side { display: flex; flex-direction: column; gap: 12px; }
+  .side .story { border-top: 2px solid var(--ink); padding-top: 9px; }
+  .side .story h3 { font-size: 24px; }
+  .side .icon { margin: 8px 0 6px; }
+
+  /* ---------- bottom ---------- */
+  .bottom { grid-template-columns: repeat(4, 1fr); }
+  .card {
+    border-top: 2px solid var(--ink); padding-top: 8px;
+    display: flex; flex-direction: column;
+  }
+  .card h3 { font-size: 17.5px; line-height: 1.08; margin: 5px 0 5px; letter-spacing: -.005em; }
+  .card p { font-size: 11.4px; line-height: 1.32; color: #2c2f37; }
+  .card .icon { margin-bottom: 4px; }
+
+  .briefs { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .brief { border-top: 1px solid var(--rule); padding-top: 7px; }
+  .brief h4 {
+    font-size: 14.5px; line-height: 1.1; margin: 4px 0 3px; letter-spacing: -.005em;
+  }
+  .brief p { font-size: 11px; line-height: 1.3; color: #2c2f37; }
+
+  /* ---------- numbers + ticker ---------- */
+  .numbers {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    background: var(--ink); color: var(--paper); margin-top: auto;
+  }
+  .num { padding: 9px 10px 10px; border-right: 1px solid #3b3f49; }
+  .num:last-child { border-right: 0; }
+  .num b {
+    display: block; font: 700 26px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -.02em; color: #fff;
+  }
+  .num span {
+    display: block; margin-top: 4px;
+    font: 600 9px/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; color: #cfc9bb;
+  }
+  .ticker {
+    display: flex; gap: 10px; align-items: baseline;
+    border-top: 1px solid var(--ink); margin-top: 8px; padding-top: 7px;
+    font-size: 11.6px; line-height: 1.3; color: #2c2f37;
+  }
+  .ticker b {
+    font: 700 9.5px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--red); white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topline">
+    <span>The World Today · Wednesday edition</span>
+    <span>One day, one page</span>
+  </div>
+  <h1><span class="day">Wednesday</span> 18 November 2026</h1>
+  <div class="subhead">
+    <span>Shenzhen summit · Hormuz strike · Gaza truce · COP31 · Nvidia</span>
+    <span>World news of the day</span>
+  </div>
+</header>
+
+<main>
+  <div class="row lead-grid">
+    <section class="lead">
+      <div class="kicker">Shenzhen · Apec summit</div>
+      <h2>Xi greets Trump as three powers gather</h2>
+      <p class="deck">Air Force One landed in the Chinese tech hub to a red-carpet welcome from Xi Jinping, hours after Xi and Vladimir Putin began talks of their own. The first three-way summit of the United States, China and Russia opens on Thursday.</p>
+
+      <svg class="art" viewBox="0 0 620 250" role="img" aria-label="Three flags over a summit table in Shenzhen">
+        <rect width="620" height="250" fill="#1c2b4a"/>
+        <g opacity=".18" stroke="#ffffff" stroke-width="1">
+          <path d="M0 60 H620 M0 110 H620 M0 160 H620 M0 210 H620"/>
+        </g>
+        <!-- skyline -->
+        <g fill="#2b3d61">
+          <rect x="30" y="120" width="34" height="130"/>
+          <rect x="72" y="96" width="26" height="154"/>
+          <rect x="106" y="134" width="40" height="116"/>
+          <rect x="470" y="108" width="30" height="142"/>
+          <rect x="508" y="132" width="44" height="118"/>
+          <rect x="560" y="90" width="26" height="160"/>
+        </g>
+        <g fill="#f4f1e8" opacity=".55">
+          <rect x="38" y="134" width="6" height="5"/><rect x="52" y="150" width="6" height="5"/>
+          <rect x="80" y="112" width="6" height="5"/><rect x="80" y="132" width="6" height="5"/>
+          <rect x="116" y="148" width="6" height="5"/><rect x="136" y="166" width="6" height="5"/>
+          <rect x="478" y="124" width="6" height="5"/><rect x="518" y="148" width="6" height="5"/>
+          <rect x="568" y="106" width="6" height="5"/>
+        </g>
+
+        <!-- flags -->
+        <g>
+          <line x1="150" y1="86" x2="150" y2="196" stroke="#cfc9bb" stroke-width="3"/>
+          <rect x="150" y="86" width="66" height="42" fill="#b3261e"/>
+          <g fill="#f2c744">
+            <circle cx="166" cy="100" r="4"/>
+            <circle cx="182" cy="96" r="3"/>
+            <circle cx="196" cy="104" r="3"/>
+            <circle cx="180" cy="114" r="3"/>
+            <circle cx="198" cy="118" r="3"/>
+          </g>
+        </g>
+        <g>
+          <line x1="310" y1="66" x2="310" y2="196" stroke="#cfc9bb" stroke-width="3"/>
+          <rect x="310" y="66" width="72" height="48" fill="#f4f1e8"/>
+          <rect x="310" y="66" width="72" height="16" fill="#1f3f8f"/>
+          <rect x="310" y="98" width="72" height="16" fill="#b3261e"/>
+        </g>
+        <g>
+          <line x1="470" y1="86" x2="470" y2="196" stroke="#cfc9bb" stroke-width="3"/>
+          <rect x="404" y="86" width="66" height="42" fill="#f4f1e8"/>
+          <g fill="#b3261e">
+            <rect x="404" y="86" width="66" height="6"/>
+            <rect x="404" y="99" width="66" height="6"/>
+            <rect x="404" y="112" width="66" height="6"/>
+          </g>
+          <rect x="404" y="86" width="26" height="20" fill="#1f3f8f"/>
+        </g>
+
+        <!-- table -->
+        <rect x="120" y="196" width="380" height="14" fill="#0f1a2c"/>
+        <rect x="120" y="210" width="380" height="3" fill="#b98a2e"/>
+        <text x="310" y="235" text-anchor="middle" fill="#cfc9bb"
+              font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12"
+              letter-spacing="3.4">SHENZHEN · CHINA · RUSSIA · UNITED STATES</text>
+      </svg>
+      <div class="caption">Xi Jinping met Donald Trump at Shenzhen airport on Wednesday; Xi and Putin talked for hours before the trilateral.</div>
+    </section>
+
+    <aside class="side">
+      <article class="story">
+        <div class="date-chip">Middle East · 18 Nov</div>
+        <svg class="icon" width="46" height="34" viewBox="0 0 46 34" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="45" height="33" fill="none" stroke="#c9c3b4"/>
+          <path d="M4 24 h10 l2 -6 h8 l3 -5 h10 v11 h-33 z" fill="#1c2b4a"/>
+          <path d="M4 28 h38" stroke="#b3261e" stroke-width="2.5"/>
+          <path d="M30 6 l3 -4 M35 9 l4 -3" stroke="#b98a2e" stroke-width="2"/>
+        </svg>
+        <h3>ADNOC tanker hit in the Strait of Hormuz</h3>
+        <p>A ship belonging to the UAE state oil firm was struck in the strait, injuring 11 crew and leaving one missing. Kuwait's air defences engaged drones; oil kept falling on Thursday's supply signals.</p>
+      </article>
+
+      <article class="story">
+        <div class="date-chip">Gaza · 18 Nov</div>
+        <svg class="icon" width="46" height="34" viewBox="0 0 46 34" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="45" height="33" fill="none" stroke="#c9c3b4"/>
+          <path d="M8 26 l10 -12 l9 12 z" fill="none" stroke="#1c2b4a" stroke-width="2"/>
+          <path d="M28 26 v-9 h5 v9" fill="#b3261e"/>
+          <path d="M6 29 h34" stroke="#b98a2e" stroke-width="2"/>
+          <path d="M18 8 l2 5 l-3 1" stroke="#1c2b4a" stroke-width="1.6" fill="none"/>
+        </svg>
+        <h3>'On the brink': truce warning to the UN</h3>
+        <p>The Board of Peace told the Security Council the year-old ceasefire may collapse without visible delivery, saying Israel is still striking Gaza and blocking its civilian body.</p>
+      </article>
+    </aside>
+  </div>
+
+  <div class="row bottom">
+    <article class="card">
+      <div class="kicker">Antalya · COP31</div>
+      <h3>Second Global Stocktake opens</h3>
+      <p>Governments began the two-year stocktake as ministers fought over fossil fuels and finance; 95% of coastal nations now count ocean measures in their plans.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Markets · AI</div>
+      <h3>Nvidia beats, board says no</h3>
+      <p>A 17th straight quarter above consensus, but the board refused Jensen Huang's return. Anthropic's IPO was more than seven times oversubscribed at pricing.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Bay of Bengal</div>
+      <h3>Cyclone Akvan turns severe</h3>
+      <p>Akvan strengthened into a severe cyclonic storm. Seven Andhra districts are on red alert before landfall near Visakhapatnam on Friday with 110 km/h winds.</p>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Americas</div>
+      <h3>Peltola takes Alaska; Colombia shrinks</h3>
+      <p>The Democrat won Alaska's Senate race. Colombia's economy fell 0.8% in the third quarter as teachers joined Thursday's strike.</p>
+    </article>
+  </div>
+
+  <div class="row briefs">
+    <article class="brief">
+      <div class="kicker">Europe · Ukraine</div>
+      <h4>Kyiv's deep strikes divide the allies</h4>
+      <p>The Pentagon's policy chief called Ukraine's long-range drone campaign ineffective as allies split, a day after the Kerch bridge was partly destroyed.</p>
+    </article>
+    <article class="brief">
+      <div class="kicker">Asia-Pacific · Manila</div>
+      <h4>Seoul and Tokyo tighten security ties</h4>
+      <p>Lee Jae Myung and Sanae Takaichi agreed to deepen supply-chain and energy cooperation at their summit on the sidelines of the Asean meetings.</p>
+    </article>
+    <article class="brief">
+      <div class="kicker">Justice · The Hague</div>
+      <h4>ICC narrows a war-crimes inquiry</h4>
+      <p>Human Rights Watch warned that the court's decision to close part of its investigation threatens victims' access to justice.</p>
+    </article>
+  </div>
+
+  <div class="numbers sans">
+    <div class="num"><b>11</b><span>crew injured on the ADNOC ship</span></div>
+    <div class="num"><b>17</b><span>quarters Nvidia has beaten consensus</span></div>
+    <div class="num"><b>7×</b><span>oversubscribed: Anthropic's IPO</span></div>
+    <div class="num"><b>110</b><span>km/h winds forecast at Akvan's landfall</span></div>
+    <div class="num"><b>0.8%</b><span>Colombia's third-quarter contraction</span></div>
+  </div>
+
+  <div class="ticker">
+    <b>Africa</b>
+    <span>South Africa formally reprimanded Nigeria's new high commissioner over a broadcast dispute, as Washington's AGOA exclusion of South Africa and Rwanda divides trade. · Kerch bridge still partly closed after Ukraine's deep strike. · Xi told the APEC summit to resist protectionism; Putin attacked sanctions.</span>
+  </div>
+</main>
+
+</body>
+</html>
